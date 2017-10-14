@@ -49,7 +49,7 @@ public class Login extends AppCompatActivity implements AsyncResponse, View.OnCl
 
 
                 PostResponseAsyncTask task = new PostResponseAsyncTask(this, postData);
-                task.execute("http://188.122.20.9:8090/login.php");
+                task.execute("http://192.168.1.103:8090/login.php");
 
                 context = getApplicationContext();
                 Intent intent = new Intent(context, Function.class);
