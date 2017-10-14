@@ -1,6 +1,9 @@
 <?php
 
-echo shell_exec("cd /home/pi && sudo ./intesityLed.py 0 2>&1")
+$int = 90;
+$value = $_POST['value'];
+echo shell_exec("cd /home/pi && sudo ./led.py $value 2>&1")
+
 
 
 ?> 
