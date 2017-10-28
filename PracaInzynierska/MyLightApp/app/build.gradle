@@ -31,5 +31,7 @@ dependencies {
     compile 'com.android.support:design:26.+'
     compile 'org.apache.httpcomponents:httpcore:4.4.1'
     compile 'org.apache.httpcomponents:httpclient:4.5'
+    compile 'com.github.QuadFlask:colorpicker:0.0.13'
+    compile 'com.github.skydoves:multicolorpicker:1.0.5'
     testCompile 'junit:junit:4.12'
 }

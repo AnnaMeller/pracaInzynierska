@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
@@ -31,6 +32,8 @@ public class Function extends AppCompatActivity implements View.OnClickListener,
     Button offButton;
     SeekBar brightnessBar;
     TextView valueView;
+    TextView time;
+    TimePicker simpleTimePicker;
 
     private ArrayBlockingQueue<Integer> mQueue = new ArrayBlockingQueue<Integer>(100);
 
@@ -57,11 +60,6 @@ public class Function extends AppCompatActivity implements View.OnClickListener,
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        /*HashMap postData = new HashMap();
-                        postData.put("value", valueView.getText().toString());
-
-                        PostResponseAsyncTask task = new PostResponseAsyncTask(this);
-                        task.execute("http://192.168.1.103:8090/led.php");*/
 
                         String value = valueView.getText().toString();
 
@@ -120,18 +118,37 @@ public class Function extends AppCompatActivity implements View.OnClickListener,
 
             case R.id.onButton:
                 PostResponseAsyncTask task = new PostResponseAsyncTask(this);
-                task.execute("http://192.168.1.103:8090/off.php");
+                task.execute("http://192.168.1.103:8090/on.php");
 
                 break;
 
             case R.id.offButton:
                 task = new PostResponseAsyncTask(this);
-                task.execute("http://192.168.1.103:8090/on.php");
+                task.execute("http://192.168.1.103:8090/off.php");
 
                 break;
         }
 
     }
+
+  /*  public void onClock (Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_function);
+        //  initiate the view's
+        time = (TextView) findViewById(R.id.time);
+        time = (TextView) findViewById(R.id.time);
+        simpleTimePicker = (TimePicker) findViewById(R.id.simpleTimePicker);
+        simpleTimePicker.setIs24HourView(false); // used to display AM/PM mode
+        // perform set on time changed listener event
+        simpleTimePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                // display a toast with changed values of time picker
+                Toast.makeText(getApplicationContext(), hourOfDay + "  " + minute, Toast.LENGTH_SHORT).show();
+                time.setText("Time is :: " + hourOfDay + " : " + minute); // set the current time in text view
+            }
+        });
+    } */
 
 
     @Override

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context="com.example.ameller.mylightapp.Login">
+
+
+    <Button
+        android:id="@+id/lampButtonImage"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/lamp" />
+
+        <Button
+            android:id="@+id/lampButton"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="#E7E7E7"
+            android:fontFamily="serif"
+            android:background="#333131"
+            android:text="Lampka nocna" />
+
+    <Button
+        android:id="@+id/ledButton"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="100dp"
+        android:background="#333131"
+        android:text="Listwa LED" />
+</LinearLayout>

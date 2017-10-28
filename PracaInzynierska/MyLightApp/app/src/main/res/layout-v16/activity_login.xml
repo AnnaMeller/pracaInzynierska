@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.ameller.mylightapp.Login"
     android:background="@drawable/bg"
-    android:weightSum="1">
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context="com.example.ameller.mylightapp.Login">
 
     <TextView
         android:id="@+id/textView"
@@ -56,7 +56,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
         android:background="#333131"
-        android:fontFamily="C"
+        android:fontFamily="Candra"
         android:text="Zaloguj się"
         android:textColor="#E7E7E7"
         android:textSize="25dp" />
