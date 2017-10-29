@@ -10,10 +10,10 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="310dp"
         android:layout_height="90dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginStart="45dp"
         android:layout_marginEnd="45dp"
         android:orientation="horizontal">
@@ -26,7 +26,7 @@
 
         <Button
             android:id="@+id/offButtonLed"
-            android:layout_width="155dp"
+            android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginHorizontal="100dp"
             android:text="OFF" />
@@ -35,15 +35,54 @@
 
     <SeekBar
         android:id="@+id/brightnessBarLed"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_width="190dp"
+        android:layout_height="20dp"
         android:layout_marginBottom="10dp" />
 
     <TextView
-        android:id="@+id/valueViewLed"
+        android:id="@+id/textViewColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
+
+    <SeekBar
+        android:id="@+id/seekBarRed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/progress_drawlable_red" />
+
+    <TextView
+        android:id="@+id/textViewProgressRed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#FFFFFF"/>
+
+    <SeekBar
+        android:id="@+id/seekBarGreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/progress_drawlable_green" />
+
+    <TextView
+        android:id="@+id/textViewProgressGreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#FFFFFF"/>
+
+    <SeekBar
+        android:id="@+id/seekBarBlue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@drawable/progress_drawlable_blue" />
+
+    <TextView
+        android:id="@+id/textViewProgressBlue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#FFFFFF"/>
 
     <!--com.skydoves.multicolorpicker.MultiColorPickerView
         android:id="@+id/multiColorPickerView"
@@ -51,7 +90,7 @@
         android:layout_height="300dp"
         app:palette="@drawable/pallete"/-->
 
-    <com.flask.colorpicker.ColorPickerView
+    <!--com.flask.colorpicker.ColorPickerView
         android:id="@+id/color_picker_view"
         android:layout_width="250dp"
         android:layout_height="250dp"
@@ -65,24 +104,37 @@
         app:alphaSliderView="@+id/v_alpha_slider"
         />
 
-    <!--com.flask.colorpicker.slider.LightnessSlider
-        android:id="@+id/v_lightness_slider"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        />
-
-    <com.flask.colorpicker.slider.AlphaSlider
-        android:id="@+id/v_alpha_slider"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        /-->
 
     <TextView
         android:id="@+id/valueViewColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text=""
         android:textColor="#FFFFFF"
-        android:layout_weight="0.32" />
+        android:layout_weight="0.32" /-->
+
+    <!--com.larswerkman.holocolorpicker.ColorPicker
+        android:id="@+id/picker"
+        android:layout_width="213dp"
+        android:layout_height="192dp"/>
+    <com.larswerkman.holocolorpicker.SVBar
+        android:id="@+id/svbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <com.larswerkman.holocolorpicker.ValueBar
+        android:id="@+id/valuebar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.larswerkman.holocolorpicker.OpacityBar
+        android:id="@+id/opacitybar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <com.larswerkman.holocolorpicker.SaturationBar
+        android:id="@+id/saturationbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/-->
+
 
 </LinearLayout>
