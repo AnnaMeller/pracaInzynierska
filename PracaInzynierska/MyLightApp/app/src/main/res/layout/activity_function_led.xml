@@ -34,18 +34,6 @@
     </LinearLayout>
 
     <SeekBar
-        android:id="@+id/brightnessBarLed"
-        android:layout_width="190dp"
-        android:layout_height="20dp"
-        android:layout_marginBottom="10dp" />
-
-    <TextView
-        android:id="@+id/textViewColor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
-    <SeekBar
         android:id="@+id/seekBarRed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -82,7 +70,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/txtColor"
+        android:layout_width="148dp"
+        android:layout_height="40dp"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/PickColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="pickColor"
+        android:text="Button" />
+
 
     <!--com.skydoves.multicolorpicker.MultiColorPickerView
         android:id="@+id/multiColorPickerView"

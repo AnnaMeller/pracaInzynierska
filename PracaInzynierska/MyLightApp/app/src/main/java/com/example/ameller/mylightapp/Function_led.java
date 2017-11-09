@@ -5,13 +5,20 @@ package com.example.ameller.mylightapp;
  */
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.flask.colorpicker.ColorPickerView;
+import com.flask.colorpicker.OnColorSelectedListener;
+import com.flask.colorpicker.builder.ColorPickerClickListener;
+import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
 
@@ -39,12 +46,12 @@ public class Function_led extends AppCompatActivity implements View.OnClickListe
     TextView valueViewProgessGreen;
     SeekBar seekBarBlue;
     TextView valueViewProgressBlue;
+    TextView txtColor;
 
-
-    //private ArrayBlockingQueue<Integer> mQueue = new ArrayBlockingQueue<Integer>(100);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_function_led);
 
@@ -60,6 +67,7 @@ public class Function_led extends AppCompatActivity implements View.OnClickListe
         seekBarBlue = (SeekBar) findViewById(R.id.seekBarBlue);
         valueViewProgressBlue = (TextView) findViewById(R.id.textViewProgressBlue);
 
+        txtColor = (TextView) findViewById(R.id.txtColor);
 
         seekBarRed.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
@@ -211,9 +219,66 @@ public class Function_led extends AppCompatActivity implements View.OnClickListe
 
                 break;
         }
+    }
 
+    public void pickColor (View view) {
+
+        ColorPickerDialogBuilder
+                .with(this)
+                .setTitle("Choose color")
+                .initialColor(0xacacac)
+                .wheelType(ColorPickerView.WHEEL_TYPE.CIRCLE)
+                .density(12)
+                .setOnColorSelectedListener(new OnColorSelectedListener() {
+                    @Override
+                    public void onColorSelected(int selectedColor) {
+                    }
+                })
+                .setPositiveButton("ok", new ColorPickerClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int selectedColor, Integer[] integers) {
+                        Log.d("DEBUG", String.valueOf(selectedColor));
+                        Toast.makeText(Function_led.this, "On selected color: " + Integer.toHexString(selectedColor), Toast.LENGTH_SHORT).show();
+                        txtColor.setBackgroundColor(selectedColor);
+
+                        txtColor.setText("" +Integer.toHexString(selectedColor));
+
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                String value = txtColor.getText().toString();
+
+                                HttpClient httpclient = new DefaultHttpClient();
+                                HttpPost httpPost = new HttpPost("http://192.168.1.103:8090/led_color.php");
+
+                                try {
+                                    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
+                                    nameValuePairs.add(new BasicNameValuePair("value", value));
+                                    httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+                                    //Execute HTTP Post Request
+                                    HttpResponse response = httpclient.execute(httpPost);
+                                } catch (ClientProtocolException e) {
+
+                                } catch (IOException e) {
+
+                                }
+                            }
+                        }).start();
+                    }
+                })
+
+                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                })
+                .build()
+                .show();
 
     }
+
 
     @Override
     public void processFinish(String s) {

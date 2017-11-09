@@ -34,5 +34,6 @@ dependencies {
     compile 'com.github.QuadFlask:colorpicker:0.0.13'
     compile 'com.github.skydoves:multicolorpicker:1.0.5'
     compile 'com.larswerkman:HoloColorPicker:1.5'
+    compile 'com.github.QuadFlask:colorpicker:0.0.13'
     testCompile 'junit:junit:4.12'
 }
