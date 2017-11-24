@@ -28,6 +28,7 @@ public class Choosing_light extends AppCompatActivity implements View.OnClickLis
 
         ledButton = (Button) findViewById(R.id.ledButton);
         ledButton.setOnClickListener(this);
+
     }
 
     @Override

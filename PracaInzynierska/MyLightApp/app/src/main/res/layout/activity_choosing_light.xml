@@ -11,33 +11,35 @@
 
 
     <Button
-        android:id="@+id/lampButtonImage"
+        android:id="@+id/addButton"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="150dp"
-        android:background="@drawable/lamp" />
+        android:layout_height="wrap_content"
+        android:text="Button" />
 
-        <Button
-            android:id="@+id/lampButton"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginBottom="5dp"
-            android:textColor="#E7E7E7"
-            android:fontFamily="serif"
-            android:background="#333131"
-            android:text="Lampka nocna" />
+    <Button
+        android:id="@+id/lampButton"
+        android:layout_width="240dp"
+        android:layout_height="200dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/light" />
+
 
     <Button
         android:id="@+id/ledButton"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginBottom="30dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginStart="100dp"
-        android:background="#333131"
-        android:text="Listwa LED" />
+        android:layout_width="240dp"
+        android:layout_height="200dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/led" />
+
+
+
+
 </LinearLayout>

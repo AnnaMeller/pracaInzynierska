@@ -2,6 +2,7 @@ package com.example.ameller.mylightapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -18,6 +19,7 @@ public class Login extends AppCompatActivity implements AsyncResponse, View.OnCl
     EditText etUserName, etPassword;
     Button btnLogin;
     Context context;
+    Typeface tfc1;
 
 
     @Override
@@ -29,13 +31,13 @@ public class Login extends AppCompatActivity implements AsyncResponse, View.OnCl
         etPassword = (EditText) findViewById(R.id.etPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(this);
+        tfc1 = Typeface.createFromAsset(getAssets(), "fonts/GenR102.TTF");
+        btnLogin.setTypeface(tfc1);
+        etPassword.setTypeface(tfc1);
+        etUserName.setTypeface(tfc1);
+
     }
 
-    //@Override
-    //public void processFinish(String result) {
-        //Toast.makeText(this, result, Toast.LENGTH_LONG).show();
-
-    //}
 
     @Override
     public void onClick(View view) {

@@ -1,52 +1,50 @@
 package com.example.ameller.mylightapp;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
-import com.kosalgeek.asynctask.AsyncResponse;
-import com.kosalgeek.asynctask.PostResponseAsyncTask;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Function extends AppCompatActivity implements View.OnClickListener, AsyncResponse {
+/**
+ * Created by ameller on 11/11/17.
+ */
 
-    Button onButton;
-    Button offButton;
-    Context context;
-    Button timeButton;
+public class Time_picker extends AppCompatActivity implements View.OnClickListener {
+
+    TimePicker timePicker;
+    Button getTime;
     TextView timeView;
-
-
-    //private ArrayBlockingQueue<Integer> mQueue = new ArrayBlockingQueue<Integer>(100);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_function);
+        setContentView(R.layout.activity_time_picker);
 
-        onButton = (Button) findViewById(R.id.onButton);
-        onButton.setOnClickListener(this);
-
-        offButton = (Button) findViewById(R.id.offButton);
-        offButton.setOnClickListener(this);
-
-        timeButton = (Button) findViewById(R.id.timeButton);
-        timeButton.setOnClickListener(this);
+        timePicker = (TimePicker) findViewById(R.id.timePicker);
+        getTime = (Button) findViewById(R.id.getTime);
         timeView = (TextView) findViewById(R.id.timeView);
 
-        //showTime();
-
+        showTime();
     }
 
-  /*  public void showTime() {
-        timePicker = (TimePicker) findViewById(R.id.timePicker);
-        timeButton = (Button) findViewById(R.id.timeButton);
+    public void showTime() {
 
-        timeButton.setOnClickListener(
+        getTime.setOnClickListener(
                 new View.OnClickListener() {
 
                     @Override
@@ -82,38 +80,11 @@ public class Function extends AppCompatActivity implements View.OnClickListener,
                     }
                 }
         );
-    }*/
-
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId()) {
-
-            case R.id.onButton:
-                PostResponseAsyncTask task = new PostResponseAsyncTask(this);
-                task.execute("http://192.168.1.103:8090/on.php");
-
-                break;
-
-            case R.id.offButton:
-                task = new PostResponseAsyncTask(this);
-                task.execute("http://192.168.1.103:8090/off.php");
-
-                break;
-
-            case R.id.timeButton:
-                context = getApplicationContext();
-                Intent intent = new Intent(context, Time_picker.class);
-                startActivity(intent);
-
-                break;
-        }
 
     }
 
-
     @Override
-    public void processFinish(String s) {
+    public void onClick(View view) {
 
     }
 }

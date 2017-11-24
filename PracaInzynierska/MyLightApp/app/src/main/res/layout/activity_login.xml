@@ -38,7 +38,7 @@
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
         android:ems="10"
@@ -51,15 +51,16 @@
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginStart="50dp"
-        android:background="#333131"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginStart="80dp"
         android:fontFamily="C"
         android:text="Zaloguj się"
         android:textColor="#E7E7E7"
-        android:textSize="25dp" />
+        android:background="@drawable/buttonshape"
+        android:textSize="25dp"
+        />
 
     <TextView
         android:id="@+id/sign"

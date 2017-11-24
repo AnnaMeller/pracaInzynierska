@@ -30,6 +30,9 @@
         <activity android:name=".Function_led">
         </activity>
 
+        <activity android:name=".Time_picker">
+        </activity>
+
     </application>
 
 </manifest>

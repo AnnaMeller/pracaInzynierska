@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="600dp"
+    android:background="#000000"
+    tools:context="com.example.ameller.mylightapp.Function"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_weight="0.25"
+        android:background="@android:color/white"
+        android:numbersBackgroundColor="@android:color/darker_gray"
+        android:numbersSelectorColor="?attr/actionMenuTextColor" />
+
+    <TextView
+        android:id="@+id/timeView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/getTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="50dp"
+        android:background="#232323"
+        android:textColor="#FFFFFF"
+        android:text="USTAW" />
+</LinearLayout>
