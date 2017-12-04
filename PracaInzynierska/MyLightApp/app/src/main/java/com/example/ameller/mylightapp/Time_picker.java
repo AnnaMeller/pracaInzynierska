@@ -1,11 +1,15 @@
 package com.example.ameller.mylightapp;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -29,6 +33,8 @@ public class Time_picker extends AppCompatActivity implements View.OnClickListen
     TimePicker timePicker;
     Button getTime;
     TextView timeView;
+    Context context;
+    Typeface tfc1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,8 @@ public class Time_picker extends AppCompatActivity implements View.OnClickListen
         timePicker = (TimePicker) findViewById(R.id.timePicker);
         getTime = (Button) findViewById(R.id.getTime);
         timeView = (TextView) findViewById(R.id.timeView);
+        tfc1 = Typeface.createFromAsset(getAssets(), "fonts/GenR102.TTF");
+        getTime.setTypeface(tfc1);
 
         showTime();
     }
@@ -63,6 +71,11 @@ public class Time_picker extends AppCompatActivity implements View.OnClickListen
                                 HttpClient httpclient = new DefaultHttpClient();
                                 HttpPost httpPost = new HttpPost("http://192.168.1.103:8090/time_sleep.php");
 
+                                context = getApplicationContext();
+                                Intent intent = new Intent(context, Function.class);
+                                startActivity(intent);
+                                finish();
+
                                 try {
                                     List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
                                     nameValuePairs.add(new BasicNameValuePair("value", value));
@@ -77,8 +90,10 @@ public class Time_picker extends AppCompatActivity implements View.OnClickListen
                                 }
                             }
                         }).start();
+                        Toast.makeText(getApplicationContext(), "Światło włączy się o godzinie "+hour + ":" +minute, Toast.LENGTH_LONG).show();
                     }
                 }
+
         );
 
     }

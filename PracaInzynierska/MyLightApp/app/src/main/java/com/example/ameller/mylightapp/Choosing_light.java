@@ -16,7 +16,9 @@ public class Choosing_light extends AppCompatActivity implements View.OnClickLis
 
     Button lampButton;
     Button ledButton;
+    Button addButton;
     Context context;
+    static String setName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,9 @@ public class Choosing_light extends AppCompatActivity implements View.OnClickLis
 
         ledButton = (Button) findViewById(R.id.ledButton);
         ledButton.setOnClickListener(this);
+
+        //addButton = (Button) findViewById(R.id.addButton);
+        //addButton.setOnClickListener(this);
 
     }
 
@@ -49,6 +54,27 @@ public class Choosing_light extends AppCompatActivity implements View.OnClickLis
                 context = getApplicationContext();
                 Intent intent_led = new Intent(context, Function_led.class);
                 startActivity(intent_led);
+
+                break;
+
+            /*case R.id.addButton:
+
+                context = getApplicationContext();
+                Intent intent_add = new Intent(context, Add_new.class);
+                startActivity(intent_add);
+
+                //Button myButton = new Button(this);
+
+                //LinearLayout ll = (LinearLayout) findViewById(R.id.choosing_ll);
+                //ViewGroup.LayoutParams lp = new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                //ll.addView(myButton, lp);
+                //myButton.setText("This");
+
+                //Bundle nameData = getIntent().getExtras();
+                //String name = nameData.getString("data");
+                //myButton.setText(""+name);
+
+                break;*/
 
         }
 

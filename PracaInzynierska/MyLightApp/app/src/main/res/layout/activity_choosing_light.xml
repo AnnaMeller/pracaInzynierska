@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/choosing_ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
@@ -11,20 +12,14 @@
 
 
     <Button
-        android:id="@+id/addButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-
-    <Button
         android:id="@+id/lampButton"
         android:layout_width="240dp"
         android:layout_height="200dp"
         android:layout_marginEnd="130dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="50dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="80dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="40dp"
         android:background="@drawable/light" />
 
 
@@ -33,13 +28,11 @@
         android:layout_width="240dp"
         android:layout_height="200dp"
         android:layout_marginEnd="130dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="50dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="40dp"
         android:background="@drawable/led" />
-
-
 
 
 </LinearLayout>

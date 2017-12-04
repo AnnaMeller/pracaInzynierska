@@ -24,6 +24,9 @@
         <activity android:name=".Choosing_light">
         </activity>
 
+        <activity android:name=".Add_new">
+        </activity>
+
         <activity android:name=".Function">
         </activity>
 

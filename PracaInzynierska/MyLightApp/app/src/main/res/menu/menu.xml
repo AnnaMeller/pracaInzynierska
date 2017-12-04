@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Single menu item
+         Set id, icon and Title for each menu item
+    -->
+
+    <item android:id="@+id/menu_bookmark"
+        android:icon="@drawable/lamp"
+        android:title="LAMP" />
+
+    <item android:id="@+id/menu_save"
+        android:icon="@drawable/led"
+        android:title="LED" />
+
+    <item android:id="@+id/menu_search"
+        android:title="ADD" />
+</menu>

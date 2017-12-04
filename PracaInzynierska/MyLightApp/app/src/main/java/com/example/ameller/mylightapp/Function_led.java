@@ -40,6 +40,7 @@ public class Function_led extends AppCompatActivity implements View.OnClickListe
 
     Button onButtonLed;
     Button offButtonLed;
+    Button stripButton;
     SeekBar seekBarRed;
     TextView valueViewProgessRed;
     SeekBar seekBarGreen;
@@ -59,6 +60,8 @@ public class Function_led extends AppCompatActivity implements View.OnClickListe
         onButtonLed.setOnClickListener(this);
         offButtonLed = (Button) findViewById(R.id.offButtonLed);
         offButtonLed.setOnClickListener(this);
+        stripButton = (Button) findViewById(R.id.stripButton);
+        stripButton.setOnClickListener(this);
 
         seekBarRed = (SeekBar) findViewById(R.id.seekBarRed);
         valueViewProgessRed = (TextView) findViewById(R.id.textViewProgressRed);
@@ -218,6 +221,13 @@ public class Function_led extends AppCompatActivity implements View.OnClickListe
                 task.execute("http://192.168.1.103:8090/off_led.php");
 
                 break;
+
+            case R.id.stripButton:
+                task = new PostResponseAsyncTask(this);
+                task.execute("http://192.168.1.103:8090/strip_led.php");
+
+                break;
+
         }
     }
 
@@ -225,8 +235,8 @@ public class Function_led extends AppCompatActivity implements View.OnClickListe
 
         ColorPickerDialogBuilder
                 .with(this)
-                .setTitle("Choose color")
-                .initialColor(0xacacac)
+                .setTitle("Wybór koloru")
+                .initialColor(0xffffff)
                 .wheelType(ColorPickerView.WHEEL_TYPE.CIRCLE)
                 .density(12)
                 .setOnColorSelectedListener(new OnColorSelectedListener() {
@@ -238,7 +248,7 @@ public class Function_led extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onClick(DialogInterface dialogInterface, int selectedColor, Integer[] integers) {
                         Log.d("DEBUG", String.valueOf(selectedColor));
-                        Toast.makeText(Function_led.this, "On selected color: " + Integer.toHexString(selectedColor), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Function_led.this, "Wybrany kolor:  " + Integer.toHexString(selectedColor), Toast.LENGTH_SHORT).show();
                         txtColor.setBackgroundColor(selectedColor);
 
                         txtColor.setText("" +Integer.toHexString(selectedColor));

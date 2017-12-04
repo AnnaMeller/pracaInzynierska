@@ -12,10 +12,13 @@
 
     <TimePicker
         android:id="@+id/timePicker"
-        android:layout_width="match_parent"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_weight="0.25"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
         android:background="@android:color/white"
         android:numbersBackgroundColor="@android:color/darker_gray"
         android:numbersSelectorColor="?attr/actionMenuTextColor" />
@@ -30,11 +33,13 @@
     <Button
         android:id="@+id/getTime"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginLeft="50dp"
-        android:background="#232323"
-        android:textColor="#FFFFFF"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginStart="80dp"
+        android:fontFamily="C"
+        android:textColor="#E7E7E7"
+        android:background="@drawable/buttonshape"
+        android:textSize="25dp"
         android:text="USTAW" />
 </LinearLayout>
