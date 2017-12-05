@@ -26,31 +26,34 @@ else:
 	minute_next = int(time_to_off[2:])
 
 hour = hour_next - int(hour_now)
-print (hour)
+#print (hour)
 minute = minute_next - int(minute_now1)
 
 sleep_time = hour*3600+minute*60
-print (sleep_time)
+#print (sleep_time)
 time.sleep(sleep_time)
-print sleep_time
+#print sleep_time
 
 #pi = pigpio.pi()
 
-if GPIO.input == True:
+#turnOn relay
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(25, GPIO.IN)
+GPIO.setup(25, GPIO.OUT)
 
-	#turnOn relay
+input_value = GPIO.input(25)
+
+if input_value == 1:
 	GPIO.setmode(GPIO.BCM)
-	GPIO.cleanup()
-	GPIO.setwarnings(False)
-	GPIO.setup(25, GPIO.OUT)
-	GPIO.output(25, GPIO.LOW)
-
+	GPIO.output(25, GPIO.LOW)	
 else:
 
 	GPIO.setmode(GPIO.BCM)
-	GPIO.cleanup()
-	GPIO.setwarnings(False)
-	GPIO.setup(25, GPIO.OUT)
+	GPIO.output(25, GPIO.HIGH)
+
+#GPIO.cleanup()
+#GPIO.setwarnings(False)
+#GPIO.setup(25, GPIO.OUT)
 	GPIO.output(25, GPIO.HIGH)
 
 #pi.stop() #disconnect with Pi
