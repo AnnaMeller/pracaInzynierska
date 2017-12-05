@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.kosalgeek.asynctask.AsyncResponse;
 import com.kosalgeek.asynctask.PostResponseAsyncTask;
@@ -46,6 +47,7 @@ public class Login extends AppCompatActivity implements AsyncResponse, View.OnCl
 
             case R.id.btnLogin:
                 HashMap postData = new HashMap();
+                postData.put("mobile", "android");
                 postData.put("txtUsername", etUserName.getText().toString());
                 postData.put("txtPassword", etPassword.getText().toString());
 
@@ -53,9 +55,9 @@ public class Login extends AppCompatActivity implements AsyncResponse, View.OnCl
                 PostResponseAsyncTask task = new PostResponseAsyncTask(this, postData);
                 task.execute("http://192.168.1.103:8090/login.php");
 
-                context = getApplicationContext();
-                Intent intent = new Intent(context, Choosing_light.class);
-                startActivity(intent);
+                //context = getApplicationContext();
+                //Intent intent = new Intent(context, Choosing_light.class);
+                //startActivity(intent);
 
                 break;
 
@@ -63,7 +65,17 @@ public class Login extends AppCompatActivity implements AsyncResponse, View.OnCl
     }
 
     @Override
-    public void processFinish(String s) {
+    public void processFinish(String result) {
+        //Toast.makeText(this, result, Toast.LENGTH_LONG).show();
 
+        if (result.equals("success")) {
+            context = getApplicationContext();
+            Intent intent = new Intent(context, Choosing_light.class);
+            startActivity(intent);
+        }
+        else {
+            result = "Niepowodzenie";
+            Toast.makeText(this, result, Toast.LENGTH_LONG).show();
+        }
     }
 }
